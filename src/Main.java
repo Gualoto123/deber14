@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
+        ArrayList<Figura> figuras = new ArrayList<>();
 
         do {
             System.out.println("Escoja una opción:");
@@ -43,20 +45,23 @@ public class Main {
                         continue;
                 }
 
+                figuras.add(figura);
+
                 System.out.println("El área de la figura es: " + area);
                 System.out.println("El perímetro de la figura es: " + perimetro);
             }
         } while (opcion != 0);
+
+        System.out.println("Lista de figuras ingresadas:");
+        for (Figura figura : figuras) {
+            System.out.println("Tipo: " + figura.getClass().getSimpleName());
+            System.out.println("Área: " + figura.calcularArea());
+            System.out.println("Perímetro: " + figura.calcularPerimetro());
+            System.out.println("-------------------------");
+        }
     }
 
     private static void leerPuntos(Figura figura, Scanner scanner, int cantidadPuntos) {
-        for (int i = 1; i <= cantidadPuntos; i++) {
-            System.out.print("Ingrese la coordenada x del punto " + i + ": ");
-            double x = scanner.nextDouble();
-            System.out.print("Ingrese la coordenada y del punto " + i + ": ");
-            double y = scanner.nextDouble();
-            Punto punto = new Punto(x, y);
-            figura.agregarPunto(punto);
-        }
+        figura.leerPuntos(scanner, cantidadPuntos);
     }
 }

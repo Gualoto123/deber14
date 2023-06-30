@@ -29,4 +29,16 @@ public class Cuadrado extends Figura {
             agregarPunto(punto);
         }
     }
+    @Override
+    public void leerPuntos(Scanner scanner, int cantidadPuntos) {
+        System.out.println("Ingrese las coordenadas de los " + cantidadPuntos + " puntos del triángulo:");
+        for (int i = 1; i <= cantidadPuntos; i++) {
+            System.out.print("Ingrese la coordenada x del punto " + i + ": ");
+            double x = scanner.nextDouble();
+            System.out.print("Ingrese la coordenada y del punto " + i + ": ");
+            double y = scanner.nextDouble();
+            Punto punto = new Punto(x, y);
+            agregarPunto(punto);
+        }
+    }
 }

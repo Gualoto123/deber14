@@ -17,4 +17,6 @@ abstract public class Figura {
     }
 
     public abstract void leerPuntos(Scanner scanner);
+
+    public abstract void leerPuntos(Scanner scanner, int cantidadPuntos);
 }
